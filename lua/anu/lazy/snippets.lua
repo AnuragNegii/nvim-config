@@ -13,7 +13,7 @@ return {
             local ls = require("luasnip")
             ls.filetype_extend("javascript", { "jsdoc" })
             ls.filetype_extend("python", {"python"})
-            ls.filetype_extend("cs", {"csharp"})
+            ls.filetype_extend("cs", {"cs"})
             ls.filetype_extend("html", {"html"})
 
             require("luasnip.loaders.from_vscode").lazy_load()

@@ -67,11 +67,10 @@ return {
 
                 ["omnisharp"] = function ()
                     local lspconfig = require("lspconfig")
-                    lspconfig.omnisharp.setup{
+                    lspconfig.omnisharp.setup {
                         capabilities = capabilities,
                     }
                 end,
-
                 ["omnisharp_mono"] = function ()
                     local lspconfig = require("lspconfig")
                     lspconfig.omnisharp_mono.setup{
