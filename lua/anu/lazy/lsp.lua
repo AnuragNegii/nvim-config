@@ -93,6 +93,11 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.ts_ls.setup{
                         capabilities = capabilities,
+                        init_options = {
+                            preferences = {
+                                disableSuggestion = true,
+                            }
+                        }
                     }
                 end,
                 ["cssls"] = function ()  -- Added CSS LSP handler
@@ -101,7 +106,6 @@ return {
                         capabilities = capabilities,
                     }
                 end,
-
             }
         })
 
@@ -116,7 +120,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({

@@ -18,9 +18,9 @@ return {
                 },
             }
         }
-         -- Keymaps for Bufferline
-            -- vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
-            -- vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+         --Keymaps for Bufferline
+            vim.keymap.set("n", "<A-Tab>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
+            vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
     end
 }
 

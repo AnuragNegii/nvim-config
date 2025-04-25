@@ -23,6 +23,3 @@ vim.keymap.set("n", "<C-n>", "cNext<CR>")
 vim.keymap.set("n", "<A-n>", ":cnext<CR>")
 vim.keymap.set("n", "<A-p>", ":cprevious<CR>")
 
---changeTab
-vim.keymap.set("n", "<tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-tab>", ":bp<CR>")
