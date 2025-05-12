@@ -18,13 +18,8 @@ return {
 
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
-        local on_attach = function(_, bufnr)
-            local map = function(mode, lhs, rhs, desc)
-                vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-            end
-            map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code actions")
-        end
+        local on_attach = function()
+       end
         local capabilities = vim.tbl_deep_extend(
             "force",
             {},
