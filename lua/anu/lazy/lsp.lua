@@ -14,8 +14,17 @@ return {
     },
 
     config = function()
+        vim.o.completeopt = "menu,menuone,noselect"
+
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
+        local on_attach = function(_, bufnr)
+            local map = function(mode, lhs, rhs, desc)
+                vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+            end
+            map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code actions")
+        end
         local capabilities = vim.tbl_deep_extend(
             "force",
             {},
@@ -40,7 +49,8 @@ return {
                 function(server_name) -- default handler (optional)
 
                     require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
+                        on_attach = on_attach,
                     }
                 end,
 
@@ -127,8 +137,8 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
-                { name = 'buffer' },
-            })
+                    { name = 'buffer' },
+                })
         })
 
         vim.diagnostic.config({
@@ -158,5 +168,5 @@ return {
                 vim.fn.cursor(vim.fn.getqflist({ idx = 0 }).items[vim.fn.getqflist().idx].lnum, 1)
             end,
         })
-        end
+    end
 }

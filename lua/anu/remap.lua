@@ -22,4 +22,3 @@ vim.keymap.set("n", "<C-n>", "cNext<CR>")
 --quickfix nav
 vim.keymap.set("n", "<A-n>", ":cnext<CR>")
 vim.keymap.set("n", "<A-p>", ":cprevious<CR>")
-
