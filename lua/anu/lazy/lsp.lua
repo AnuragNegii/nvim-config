@@ -154,6 +154,15 @@ return {
         prefix = "",
       },
     })
+    --check this for error
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
+          buffer = args.buf,
+          desc = "LSP Rename",
+        })
+      end,
+    })
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open diagnostics in a floating window" })
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to the previous diagnostic" })
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to the next diagnostic" })
