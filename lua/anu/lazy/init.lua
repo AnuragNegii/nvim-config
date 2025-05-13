@@ -1,10 +1,9 @@
 return {
-
     {
         "nvim-lua/plenary.nvim",
-        name = "plenary"
+        name = "plenary",
+        lazy = true,
     },
-
-    "github/copilot.vim",
-    "gpanders/editorconfig.nvim",
+        "gpanders/editorconfig.nvim",
 }
+
