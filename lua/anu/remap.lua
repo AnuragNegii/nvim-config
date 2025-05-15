@@ -9,6 +9,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- vim.keymap.set("i", "jj", "<Esc>")
 
+vim.keymap.set("n", "<leader>k", "<C-w>k<CR>")
+vim.keymap.set("n", "<leader>j", "<C-w>j<CR>")
+vim.keymap.set("n", "<leader>l", "<C-w>l<CR>")
+vim.keymap.set("n", "<leader>h", "<C-w>h<CR>")
 
 vim.keymap.set("n", "<leader>w",":w<CR>")
 vim.keymap.set("n", "<leader>c",":bw<CR>")
