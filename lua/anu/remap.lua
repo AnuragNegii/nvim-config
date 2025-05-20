@@ -8,11 +8,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- vim.keymap.set("i", "jj", "<Esc>")
 
-vim.keymap.set("n", "<leader>k", "<C-w>k<CR>")
-vim.keymap.set("n", "<leader>j", "<C-w>j<CR>")
-vim.keymap.set("n", "<leader>l", "<C-w>l<CR>")
-vim.keymap.set("n", "<leader>h", "<C-w>h<CR>")
-
 vim.keymap.set("n", "<leader>w",":w<CR>")
 vim.keymap.set("n", "<leader>c",":bw<CR>")
 
@@ -25,3 +20,11 @@ vim.keymap.set("n", "<C-n>", "cNext<CR>")
 --quickfix nav
 vim.keymap.set("n", "<A-n>", ":cnext<CR>")
 vim.keymap.set("n", "<A-p>", ":cprevious<CR>")
+
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+-- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+-- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+-- close current split window
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
