@@ -16,7 +16,7 @@ return {
                 styles = {
                     bold = true,
                     italic = false,
-                    transparency = false,
+                    transparency = true,
                 },
                 highlight_groups = {
                     ColorColumn = { bg = "#1C1C21" },
@@ -68,7 +68,7 @@ return {
                     Pmenu = { bg = "" }, -- Completion menu background
                 },
                 dim_inactive = false,
-                transparent_mode = false,
+                transparent_mode = true,
             })
         end,
     },
@@ -150,8 +150,8 @@ return {
                     functions = {},
                     variables = {},
                     -- Background styles. Can be "dark", "transparent" or "normal"
-                    sidebars = "dark",            -- style for sidebars, see below
-                    floats = "dark",              -- style for floating windows
+                    sidebars = "transparent",            -- style for sidebars, see below
+                    floats = "transparent",              -- style for floating windows
                 },
                 sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
                 day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -197,7 +197,7 @@ return {
         name = "folkeTokyonight",
         -- priority = 1000,
         config = function()
-            local transparent = true
+            local transparent = true 
             local bg = "#011628"
             local bg_dark = "#011423"
             local bg_highlight = "#143652"
@@ -210,23 +210,23 @@ return {
 
             require("tokyonight").setup({
                 style = "night",
-                transparent = transparent,
+                transparent = "transparent",
 
                 styles = {
                     comments = { italic = false },
                     keywords = { italic = false },
-                    sidebars = transparent and "transparent" or "dark",
-                    floats = transparent and "transparent" or "dark",
+                    sidebars = "transparent" and "transparent" or "dark",
+                    floats = "transparent" and "transparent" or "dark",
                 },
                 on_colors = function(colors)
-                    colors.bg = transparent and colors.none or bg
-                    colors.bg_dark = transparent and colors.none or bg_dark
-                    colors.bg_float = transparent and colors.none or bg_dark
+                    colors.bg = colors.none and colors.none or bg
+                    colors.bg_dark = bg_dark and colors.none or bg_dark
+                    colors.bg_float = bg_dark and colors.none or bg_dark
                     colors.bg_highlight = bg_highlight
                     colors.bg_popup = bg_dark
                     colors.bg_search = bg_search
-                    colors.bg_sidebar = transparent and colors.none or bg_dark
-                    colors.bg_statusline = transparent and colors.none or bg_dark
+                    colors.bg_sidebar = bg_dark and colors.none or bg_dark
+                    colors.bg_statusline = bg_dark and colors.none or bg_dark
                     colors.bg_visual = bg_visual
                     colors.border = border
                     colors.fg = fg
