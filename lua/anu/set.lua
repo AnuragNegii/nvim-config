@@ -38,7 +38,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "70"
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Higlight when yanking text",
     group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {clear = true}),
@@ -47,4 +47,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.opt.textwidth = 70
+vim.opt.formatoptions:append("t")
 
+-- Ensure formatoptions is set on every buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.textwidth = 70
+    vim.opt_local.formatoptions:append("t")
+  end
+})
