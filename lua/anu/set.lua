@@ -1,5 +1,6 @@
-vim.opt.guicursor = ""
-
+--<leader>pk to fuzzy check all current keymaps
+-- vim.opt.guicursor = ""
+vim.g.mapleader = " "
 vim.opt.termguicolors = true
 
 vim.opt.nu = true
@@ -38,7 +39,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "70"
+vim.opt.colorcolumn = "80"
+-- highlight ColorColumn=#FF5349 ctermbg=#FF5349 guibg= #FF5349.
+-- vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#FF5349" })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Higlight when yanking text",
     group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {clear = true}),
@@ -47,14 +51,30 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.opt.textwidth = 70
-vim.opt.formatoptions:append("t")
+-- vim.opt.textwidth = 80
+-- vim.opt.formatoptions:append("t")
+--
+-- -- Ensure formatoptions is set on every buffer
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.opt_local.textwidth = 70
+--     vim.opt_local.formatoptions:append("t")
+--   end
+-- })
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#FF5349" })
+--   end,
+-- })
+--
 
--- Ensure formatoptions is set on every buffer
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.textwidth = 70
-    vim.opt_local.formatoptions:append("t")
+vim.keymap.set("n", "<leader>rr", function()
+    print("restarting server")
+  for _, client in pairs(vim.lsp.get_clients()) do
+    client.stop()
   end
-})
+  vim.cmd("edit")
+end, { desc = "Restart all LSPs" })
+
